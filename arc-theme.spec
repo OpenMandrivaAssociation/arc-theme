@@ -21,7 +21,7 @@ BuildRequires:	inkscape
 BuildRequires:	optipng
 BuildRequires:	sassc
 BuildRequires:	gnome-shell
-BuildRequires:	gtk3-devel
+BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	fdupes
 BuildRequires:  make
 
