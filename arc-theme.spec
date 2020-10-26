@@ -5,12 +5,12 @@
 
 Name:		arc-theme
 Version:	20201013
-Release:	1%{?dist}
+Release:	1
 Summary:	A flat theme with transparent elements
 
 License:	GPLv3+
 URL:		https://github.com/jnsh/arc-theme
-Source0:	%{url}/archive/%{version}.tar.gz#/arc-theme-%{version}.tar.gz
+Source0:	https://github.com/jnsh/arc-theme/archive/%{version}/arc-theme-%{version}.tar.gz
 
 BuildArch:	noarch
 
@@ -61,23 +61,3 @@ popd
 %license AUTHORS COPYING
 %doc README.md
 %{_datadir}/themes/*
-
-%changelog
-* Thu Oct 15 2020 Muhammad Ahmad <mhdahmadx@gmail.com>
-- New Version - 20201013
-
-* Wed Aug 19 2020 Muhammad Ahmad <mhdahmadx@gmail.com>
-- Add Cinnamon and Xfce
-
-* Wed Aug 19 2020 Muhammad Ahmad <mhdahmadx@gmail.com>
-- New Version - 20200819
-
-* Tue Aug 18 2020 Muhammad Ahmad <mhdahmadx@gmail.com>
-- New Build
-- Add Regular and Solid Variants
-
-* Tue Jul 03 2020 Muhammad Ahmad <mhdahmadx@gmail.com>
-- New Commit
-
-* Wed Jun 03 2020 Muhammad Ahmad <mhdahmadx@gmail.com>
-- Initial Commit
