@@ -26,7 +26,7 @@ BuildRequires:	fdupes
 BuildRequires:  make
 
 Requires:	gnome-themes-extra
-Requires:	gtk-murrine-engine
+Requires:	murrine
 
 %description
 %{common_desc}
