@@ -14,8 +14,7 @@ Source0:	https://github.com/jnsh/arc-theme/archive/%{version}/arc-theme-%{versio
 
 BuildArch:	noarch
 
-BuildRequires:	autoconf
-BuildRequires:	automake
+BuildRequires:  meson
 BuildRequires:  pkgconf
 BuildRequires:	inkscape
 BuildRequires:	optipng
@@ -35,26 +34,28 @@ Requires:	murrine
 
 %prep
 %autosetup -p 1
-%{_bindir}/autoreconf -fiv
 
 %build
 %{__mkdir} -p regular solid
+ 
 pushd regular
-%{__ln_s} -f ../configure configure
-%configure %{common_configure}
+%meson -Dthemes=cinnamon,gnome-shell,gtk2,gtk3,gtk4,metacity,plank,xfwm
+%meson_build
 popd
+ 
 pushd solid
-%{__ln_s} -f ../configure configure
-%configure --disable-transparency %{common_configure}
+%meson -Dthemes=cinnamon,gnome-shell,gtk2,gtk3,gtk4,metacity,plank,xfwm -Dtransparency=false
+%meson_build
 popd
-%make_build -C regular
-%make_build -C solid
-
-
+ 
 %install
-%make_install -C regular
-%make_install -C solid
-
+pushd regular
+%meson_install
+popd
+ 
+pushd solid
+%meson_install
+popd
 # Link duplicate files.
 %fdupes -s %{buildroot}%{_datadir}
 
