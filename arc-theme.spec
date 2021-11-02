@@ -39,6 +39,7 @@ Requires:	murrine
 %{__mkdir} -p regular solid
  
 pushd regular
+%{__ln_s} -f ../meson* meson*
 %meson -Dthemes=cinnamon,gnome-shell,gtk2,gtk3,gtk4,metacity,plank,xfwm
 %meson_build
 popd
