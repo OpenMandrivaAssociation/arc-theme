@@ -21,6 +21,7 @@ BuildRequires:	optipng
 BuildRequires:	sassc
 BuildRequires:	gnome-shell
 BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:	pkgconfig(gtk4)
 BuildRequires:	fdupes
 BuildRequires:  make
 
@@ -36,27 +37,12 @@ Requires:	murrine
 %autosetup -p 1
 
 %build
-%{__mkdir} -p regular solid
- 
-pushd regular
-%{__ln_s} -f ../meson* meson*
+
 %meson -Dthemes=cinnamon,gnome-shell,gtk2,gtk3,gtk4,metacity,plank,xfwm
-%meson_build
-popd
- 
-pushd solid
-%meson -Dthemes=cinnamon,gnome-shell,gtk2,gtk3,gtk4,metacity,plank,xfwm -Dtransparency=false
-%meson_build
-popd
  
 %install
-pushd regular
 %meson_install
-popd
- 
-pushd solid
-%meson_install
-popd
+
 # Link duplicate files.
 %fdupes -s %{buildroot}%{_datadir}
 
