@@ -4,7 +4,7 @@
 
 
 Name:		arc-theme
-Version:	20211018
+Version:	20220102
 Release:	1
 Summary:	A flat theme with transparent elements
 
@@ -21,6 +21,7 @@ BuildRequires:	optipng
 BuildRequires:	sassc
 BuildRequires:	gnome-shell
 BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:	pkgconfig(gtk4)
 BuildRequires:	fdupes
 BuildRequires:  make
 
@@ -36,26 +37,15 @@ Requires:	murrine
 %autosetup -p 1
 
 %build
-%{__mkdir} -p regular solid
- 
-pushd regular
-%meson -Dthemes=cinnamon,gnome-shell,gtk2,gtk3,gtk4,metacity,plank,xfwm
-%meson_build
-popd
- 
-pushd solid
-%meson -Dthemes=cinnamon,gnome-shell,gtk2,gtk3,gtk4,metacity,plank,xfwm -Dtransparency=false
-%meson_build
-popd
+
+%meson \
+       -Dthemes=cinnamon,gnome-shell,gtk2,gtk3,gtk4,metacity,plank,xfwm \
+       -Dcinnamon_version=5.2
+%meson_build 
  
 %install
-pushd regular
 %meson_install
-popd
- 
-pushd solid
-%meson_install
-popd
+
 # Link duplicate files.
 %fdupes -s %{buildroot}%{_datadir}
 
