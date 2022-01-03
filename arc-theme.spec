@@ -39,8 +39,9 @@ Requires:	murrine
 %build
 
 %meson \
-       -Dthemes=gnome-shell,gtk2,gtk3,gtk4,metacity,plank,xfwm \
+       -Dthemes=cinnamon,gnome-shell,gtk2,gtk3,gtk4,metacity,plank,xfwm \
        -Dcinnamon_version=5.2
+%meson_build 
  
 %install
 %meson_install
