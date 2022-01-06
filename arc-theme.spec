@@ -4,7 +4,7 @@
 
 
 Name:		arc-theme
-Version:	20220102
+Version:	20220105
 Release:	1
 Summary:	A flat theme with transparent elements
 
