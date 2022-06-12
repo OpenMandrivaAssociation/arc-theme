@@ -4,7 +4,7 @@
 
 
 Name:		arc-theme
-Version:	20220223
+Version:	20220405
 Release:	1
 Summary:	A flat theme with transparent elements
 
@@ -14,16 +14,16 @@ Source0:	https://github.com/jnsh/arc-theme/archive/%{version}/arc-theme-%{versio
 
 BuildArch:	noarch
 
-BuildRequires:  meson
-BuildRequires:  pkgconf
-BuildRequires:	inkscape
-BuildRequires:	optipng
-BuildRequires:	sassc
-BuildRequires:	gnome-shell
-BuildRequires:	pkgconfig(gtk+-3.0)
-BuildRequires:	pkgconfig(gtk4)
-BuildRequires:	fdupes
-BuildRequires:  make
+BuildRequires: meson
+BuildRequires: pkgconf
+BuildRequires: inkscape
+BuildRequires: optipng
+BuildRequires: sassc
+BuildRequires: gnome-shell
+BuildRequires: pkgconfig(gtk+-3.0)
+BuildRequires: pkgconfig(gtk4)
+BuildRequires: fdupes
+BuildRequires: make
 
 # as dirty workaround use themes-standard and now broken confliction themes extra
 Requires: gnome-themes-standard
